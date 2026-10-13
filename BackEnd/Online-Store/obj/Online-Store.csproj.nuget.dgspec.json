@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\Bazzar\\Backend\\Online-Store\\Online-Store.csproj": {}
+    "C:\\Users\\HP\\Desktop\\Bazzar Online-Store\\BackEnd\\Online-Store\\Online-Store.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\Bazzar\\Backend\\Online-Store\\Online-Store.csproj": {
+    "C:\\Users\\HP\\Desktop\\Bazzar Online-Store\\BackEnd\\Online-Store\\Online-Store.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\Bazzar\\Backend\\Online-Store\\Online-Store.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\Bazzar Online-Store\\BackEnd\\Online-Store\\Online-Store.csproj",
         "projectName": "Online-Store",
-        "projectPath": "C:\\Users\\HP\\Desktop\\Bazzar\\Backend\\Online-Store\\Online-Store.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\Bazzar Online-Store\\BackEnd\\Online-Store\\Online-Store.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\Bazzar\\Backend\\Online-Store\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\Bazzar Online-Store\\BackEnd\\Online-Store\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -63,6 +63,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

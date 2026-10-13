@@ -47,8 +47,12 @@ namespace Online_Store.Controllers
                     var errors = result.Errors.Select(e => e.Description);
                     return BadRequest(new { message = "فشل إنشاء الحساب", errors });
                 }
+                var token = GenerateJwtToken(user);
 
-                return Ok(new { message = "تم إنشاء الحساب بنجاح" });
+                return Ok(new { message = "تم إنشاء الحساب بنجاح",
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    expiration = token.ValidTo
+                });
             }
             catch (Exception ex)
             {

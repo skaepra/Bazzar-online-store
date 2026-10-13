@@ -1,0 +1,70 @@
+// Layout.tsx
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AppThemeProvider } from "./features/dark-mode/dark";
+
+import Home from "./features/home/screen/home";
+import ShoppingCartScreen from "./features/cart/screen/ShoppingCart";
+import LoginScreen from "./features/auth/Screens/login";
+import SignUpScreen from "./features/auth/Screens/SignUp";
+
+import Footer from "./features/home/components/Footer";
+import FAQPage from "./features/customer-care/FAQ";
+import ShippingInfoPage from "./features/customer-care/ShippingInfo";
+import ReturnsRefundsPage from "./features/customer-care/ReturnsRefundsPage";
+import ContactUsPage from "./features/customer-care/ContactUsPage";
+import ShopingScreen from "./features/shop/screen/Shoping";
+import ProductDetails from "./features/products/screen/ProductDetails";
+import OrdersPage from "./features/order/screen/OrdersPage";
+import WishlistPage from "./features/products/screen/WishlistPage";
+import CheckOutScreen from "./features/checkout/screen/CheckOut";
+
+import AppNavbar from "./features/home/components/navbar";
+import NotFoundPage from "./features/error/NotFound";
+import { ProtectedRoute } from "./shared/utils/ProtectedRoute";
+import ScrollToTop from "./shared/utils/ScrollToTop";
+
+
+
+export default function Layout(): React.JSX.Element {
+  const location = useLocation();
+
+  const hideNavbarRoutes: readonly string[] = ["/login", "/singUp"];
+  const hideFooterRoutes: readonly string[] = ["/login", "/singUp"];
+  const shouldHideNavbar: boolean = hideNavbarRoutes.includes(location.pathname);
+  const shouldHideFooter: boolean = hideFooterRoutes.includes(location.pathname);
+
+  return (
+    <AppThemeProvider>
+      <ScrollToTop />
+      <div className={shouldHideNavbar ? "" : "pt-[110px] md:pt-[102px] bg-white dark:bg-zinc-900"}>
+        <Routes>
+          {/* 🟢 1. صفحات عامة متاحة لجميع الزوار */}
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<ShopingScreen />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<ShoppingCartScreen />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/order" element={<OrdersPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/shipping" element={<ShippingInfoPage />} />
+          <Route path="/returns" element={<ReturnsRefundsPage />} />
+          <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/singUp" element={<SignUpScreen />} />
+
+          {/* 🔴 2. صفحة الـ Checkout فقط هي المحمية بالتوكن */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/checkOut" element={<CheckOutScreen />} />
+          </Route>
+
+          {/* ⚪ 3. صفحة 404 */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
+
+      {!shouldHideNavbar && <AppNavbar />}
+      {!shouldHideFooter && <Footer />}
+    </AppThemeProvider>
+  );
+}

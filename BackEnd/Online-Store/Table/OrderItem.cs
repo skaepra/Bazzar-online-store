@@ -12,8 +12,9 @@ namespace Online_Store.Entities
         [MaxLength(200)]
         public string ProductName { get; set; } = string.Empty;
 
-        // مصفوفة الألوان ستُخزن كـ List<string> مع ضبط للتحويل في DbContext
         public string Color { get; set; } = string.Empty;
+
+        public string Size { get; set; } = string.Empty; 
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal UnitPrice { get; set; }

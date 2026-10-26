@@ -93,6 +93,7 @@ namespace Online_Store.Controllers
                     Id = Guid.NewGuid(),
                     ProductName = itemDto.ProductName,
                     Color = itemDto.Color,
+                    Size = itemDto.Size, 
                     UnitPrice = itemDto.UnitPrice,
                     Quantity = itemDto.Quantity,
                     LineTotal = lineTotal
@@ -134,6 +135,7 @@ namespace Online_Store.Controllers
                     Id = i.Id,
                     ProductName = i.ProductName,
                     Color = i.Color,
+                    Size = i.Size,
                     UnitPrice = i.UnitPrice,
                     Quantity = i.Quantity,
                     LineTotal = i.LineTotal
